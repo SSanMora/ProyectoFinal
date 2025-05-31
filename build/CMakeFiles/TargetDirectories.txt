@@ -1,0 +1,5 @@
+/workspaces/ProyectoFinal/build/CMakeFiles/rebuild_cache.dir
+/workspaces/ProyectoFinal/build/CMakeFiles/edit_cache.dir
+/workspaces/ProyectoFinal/build/ahorcado/CMakeFiles/rebuild_cache.dir
+/workspaces/ProyectoFinal/build/ahorcado/CMakeFiles/edit_cache.dir
+/workspaces/ProyectoFinal/build/ahorcado/CMakeFiles/ahorcado.dir

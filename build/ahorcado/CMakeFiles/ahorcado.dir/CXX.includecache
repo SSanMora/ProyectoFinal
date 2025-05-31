@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspaces/ProyectoFinal/ahorcado/main.cpp
+
+/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp
+
+/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp
+
+/workspaces/ProyectoFinal/ahorcado/src/Historial.cpp
+
+/workspaces/ProyectoFinal/ahorcado/src/Juego.cpp
+
