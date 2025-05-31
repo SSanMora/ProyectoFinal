@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/workspaces/ProyectoFinal/ahorcado/build",
+  "command": "/usr/bin/g++   -I/workspaces/ProyectoFinal/ahorcado/include  -g   -o CMakeFiles/ahorcado.dir/main.cpp.o -c /workspaces/ProyectoFinal/ahorcado/main.cpp",
+  "file": "/workspaces/ProyectoFinal/ahorcado/main.cpp"
+},
+{
+  "directory": "/workspaces/ProyectoFinal/ahorcado/build",
+  "command": "/usr/bin/g++   -I/workspaces/ProyectoFinal/ahorcado/include  -g   -o CMakeFiles/ahorcado.dir/src/Ahorcado.cpp.o -c /workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp",
+  "file": "/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp"
+},
+{
+  "directory": "/workspaces/ProyectoFinal/ahorcado/build",
+  "command": "/usr/bin/g++   -I/workspaces/ProyectoFinal/ahorcado/include  -g   -o CMakeFiles/ahorcado.dir/src/Concentrese.cpp.o -c /workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp",
+  "file": "/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp"
+},
+{
+  "directory": "/workspaces/ProyectoFinal/ahorcado/build",
+  "command": "/usr/bin/g++   -I/workspaces/ProyectoFinal/ahorcado/include  -g   -o CMakeFiles/ahorcado.dir/src/Historial.cpp.o -c /workspaces/ProyectoFinal/ahorcado/src/Historial.cpp",
+  "file": "/workspaces/ProyectoFinal/ahorcado/src/Historial.cpp"
+},
+{
+  "directory": "/workspaces/ProyectoFinal/ahorcado/build",
+  "command": "/usr/bin/g++   -I/workspaces/ProyectoFinal/ahorcado/include  -g   -o CMakeFiles/ahorcado.dir/src/Juego.cpp.o -c /workspaces/ProyectoFinal/ahorcado/src/Juego.cpp",
+  "file": "/workspaces/ProyectoFinal/ahorcado/src/Juego.cpp"
+}
+]
