@@ -6,7 +6,7 @@
 
 class Ahorcado : public Juego {
 private:
-    string palabralSecreta;
+    string palabraSecreta;
     string palabraAdivinada;
     int intentos;
     vector<string> palabras;
