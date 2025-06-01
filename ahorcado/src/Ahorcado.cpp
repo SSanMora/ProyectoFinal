@@ -1,86 +1,111 @@
-#include "Ahorcado.h"
-#include <iostream>
-#include <fstream>
-#include <ctime>
-#include <string>
+// include guard
+#include "Ahorcado.h" // el archivo de cabecera del juego ahorcado
+#include <iostream> // para manejar la entrada y salida estándar
+#include <fstream> // para manejar archivos
+#include <ctime> // para manejar el tiempo (para el historial)
+#include <cctype> // para manejar caracteres (como tolower)
 
-// Constructor
-Ahorcado::Ahorcado(string nombre) : Juego(nombre), intentos(6) {
-    // Palabras por defecto
-    palabras = {"PROGRAMACION", "COMPUTADORA", "AHORCADO", "POO", "HERENCIA"};
-    seleccionarPalabra();
-    palabraAdivinada = string(palabraSecreta.length(), '_');
+using namespace std;
+
+Ahorcado::Ahorcado() {
+    /* este es el constructor por defecto
+    inicializa los atributos de la clase ahorcado */
+    intentosMaximos = 6;
+    intentosUsados = 0;
 }
 
-// Método para seleccionar palabra aleatoria
-void Ahorcado::seleccionarPalabra() {
-    // Semilla para números aleatorios usando time
-    static bool semillaLista = false;
-    if (!semillaLista) {
+void Ahorcado::inicializarPalabra(const string& palabra) {
+    palabraSecreta = palabra;
+    palabraAdivinada = string(palabra.length(), '_');
+}
+
+void Ahorcado::cargarPalabraDesdeArchivo(const string& rutaArchivo) {
+    ifstream archivo(rutaArchivo);
+    vector<string> palabras;
+
+    if (archivo.is_open()) {
+        string linea;
+        while (getline(archivo, linea)) {
+            palabras.push_back(linea);
+        }
+        archivo.close();
+
+        if (palabras.empty()) {
+            cout << "El archivo está vacío. Agrega palabras a palabras.txt.\n";
+            palabraSecreta = "";
+            return;
+        }
+
         srand(time(0));
-        semillaLista = true;
-    }
-    
-    if (!palabras.empty()) {
         int indice = rand() % palabras.size();
-        palabraSecreta = palabras[indice];
+        inicializarPalabra(palabras[indice]);
     } else {
-        palabraSecreta = "PROGRAMACION"; // Palabra por defecto
+        cout << "No se pudo abrir el archivo.\n";
     }
 }
 
-// Verificar si la letra está en la palabra
-bool Ahorcado::verificarLetra(char letra) {
-    bool encontrada = false;
-    letra = toupper(letra);
-    
-    for (int i = 0; i < palabraSecreta.length(); i++) {
-        if (palabraSecreta[i] == letra) {
-            palabraAdivinada[i] = letra;
-            encontrada = true;
-        }
-    }
-    return encontrada;
-}
-
-// Mostrar instrucciones del juego
-void Ahorcado::mostrarInstrucciones() {
-    cout << "\n=== INSTRUCCIONES DEL AHORCADO ===" << endl;
-    cout << "Adivina la palabra letra por letra" << endl;
-    cout << "Tienes " << intentos << " intentos fallidos permitidos" << endl;
-    cout << "La palabra tiene " << palabraSecreta.length() << " letras" << endl;
-}
-
-// Método principal del juego
 void Ahorcado::jugar() {
-    mostrarInstrucciones();
-    
-    while (intentos > 0 && palabraAdivinada != palabraSecreta) {
-        cout << "\nPalabra: ";
-        for (char c : palabraAdivinada) {
-            cout << c << " ";
-        }
-        cout << "\nIntentos restantes: " << intentos << endl;
-        
-        char letra;
+    string jugador;
+    cout << "Ingresa tu nombre: ";
+    getline(std::cin, jugador);
+
+    cargarPalabraDesdeArchivo("palabras.txt");
+
+    if (palabraSecreta.empty()) {
+        cout << "No se pudo cargar ninguna palabra. Terminando el juego.\n";
+        return;
+    }
+
+    cout << "La palabra tiene " << palabraSecreta.length() << " letras.\n";
+
+    char letra;
+    bool gano = false;
+
+    while (intentosUsados < intentosMaximos && palabraAdivinada != palabraSecreta) {
+        cout << "\nPalabra: " << palabraAdivinada << "\n";
+        cout << "Intentos restantes: " << (intentosMaximos - intentosUsados) << "\n";
         cout << "Ingresa una letra: ";
         cin >> letra;
-        
-        if (!verificarLetra(letra)) {
-            cout << "La letra no está en la palabra!" << endl;
-            intentos--;
-        } else {
-            cout << "Correcto!" << endl;
+        letra = tolower(letra);
+
+        bool acierto = false;
+        for (size_t i = 0; i < palabraSecreta.length(); i++) {
+            if (tolower(palabraSecreta[i]) == letra && palabraAdivinada[i] == '_') {
+                palabraAdivinada[i] = palabraSecreta[i]; // se conserva la letra original
+                acierto = true;
+            }
+        }
+
+        if (!acierto) {
+            intentosUsados++;
         }
     }
-    
-    // Resultado final
+
     if (palabraAdivinada == palabraSecreta) {
-        setPuntuacion(intentos * 10);
-        cout << "\n¡GANASTE! Puntuación: " << getPuntuacion() << endl;
-        guardarResultado("Gano");
+        cout << "¡Ganaste! La palabra era: " << palabraSecreta << "\n";
+        gano = true;
     } else {
-        cout << "\n¡PERDISTE! La palabra era: " << palabraSecreta << endl;
-        guardarResultado("Perdio");
+        cout << "\nPerdiste. La palabra era: " << palabraSecreta << "\n";
+    }
+
+    guardarHistorial(jugador, gano, intentosMaximos - intentosUsados);
+}
+
+void Ahorcado::guardarHistorial(const string& jugador, bool gano, int puntuacion) {
+    ofstream archivo("historial.txt", ios::app);
+    if (archivo.is_open()) {
+        time_t now = time(0);
+        tm* localtm = localtime(&now);
+
+        archivo << (1900 + localtm->tm_year) << "-"
+                << (1 + localtm->tm_mon) << "-"
+                << localtm->tm_mday << " "
+                << jugador << " AH "
+                << (gano ? "G" : "P") << " "
+                << puntuacion << "\n";
+
+        archivo.close();
     }
 }
+
+/* esta es la implementacion del juego ahorcado */

@@ -1,8 +1,11 @@
+/*
 #ifndef CONCENTRESE_H
 #define CONCENTRESE_H
 
 #include "Juego.h"
 #include <vector>
+
+using namespace std;
 
 class Concentrese : public Juego {
 private:
@@ -21,3 +24,4 @@ public:
 };
 
 #endif
+*/

@@ -1,7 +1,10 @@
+/*
 #include "Concentrese.h"
 #include <iostream>
 #include <fstream>
 #include <ctime>
+
+using namespace std;
 
 Concentrese::Concentrese(string nombre) : Juego(nombre), pares(0) {
     cargarSimbolos("simbolos.txt");
@@ -82,3 +85,5 @@ void Concentrese::jugar() {
     cout << "\n¡FELICIDADES! Completaste el juego con " << getPuntuacion() << " puntos." << endl;
     guardarResultado("Gano");
 }
+
+*/

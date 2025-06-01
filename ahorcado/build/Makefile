@@ -204,33 +204,6 @@ src/Concentrese.cpp.s:
 	$(MAKE) -f CMakeFiles/ahorcado.dir/build.make CMakeFiles/ahorcado.dir/src/Concentrese.cpp.s
 .PHONY : src/Concentrese.cpp.s
 
-src/Historial.o: src/Historial.cpp.o
-
-.PHONY : src/Historial.o
-
-# target to build an object file
-src/Historial.cpp.o:
-	$(MAKE) -f CMakeFiles/ahorcado.dir/build.make CMakeFiles/ahorcado.dir/src/Historial.cpp.o
-.PHONY : src/Historial.cpp.o
-
-src/Historial.i: src/Historial.cpp.i
-
-.PHONY : src/Historial.i
-
-# target to preprocess a source file
-src/Historial.cpp.i:
-	$(MAKE) -f CMakeFiles/ahorcado.dir/build.make CMakeFiles/ahorcado.dir/src/Historial.cpp.i
-.PHONY : src/Historial.cpp.i
-
-src/Historial.s: src/Historial.cpp.s
-
-.PHONY : src/Historial.s
-
-# target to generate assembly for a file
-src/Historial.cpp.s:
-	$(MAKE) -f CMakeFiles/ahorcado.dir/build.make CMakeFiles/ahorcado.dir/src/Historial.cpp.s
-.PHONY : src/Historial.cpp.s
-
 src/Juego.o: src/Juego.cpp.o
 
 .PHONY : src/Juego.o
@@ -276,9 +249,6 @@ help:
 	@echo "... src/Concentrese.o"
 	@echo "... src/Concentrese.i"
 	@echo "... src/Concentrese.s"
-	@echo "... src/Historial.o"
-	@echo "... src/Historial.i"
-	@echo "... src/Historial.s"
 	@echo "... src/Juego.o"
 	@echo "... src/Juego.i"
 	@echo "... src/Juego.s"

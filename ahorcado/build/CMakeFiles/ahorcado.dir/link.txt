@@ -1,1 +1,1 @@
-/usr/bin/g++  -g   CMakeFiles/ahorcado.dir/main.cpp.o CMakeFiles/ahorcado.dir/src/Ahorcado.cpp.o CMakeFiles/ahorcado.dir/src/Concentrese.cpp.o CMakeFiles/ahorcado.dir/src/Historial.cpp.o CMakeFiles/ahorcado.dir/src/Juego.cpp.o  -o ahorcado 
+/usr/bin/g++  -g   CMakeFiles/ahorcado.dir/main.cpp.o CMakeFiles/ahorcado.dir/src/Ahorcado.cpp.o CMakeFiles/ahorcado.dir/src/Concentrese.cpp.o CMakeFiles/ahorcado.dir/src/Juego.cpp.o  -o ahorcado 

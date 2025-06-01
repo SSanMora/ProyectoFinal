@@ -7,7 +7,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/workspaces/ProyectoFinal/ahorcado/main.cpp" "/workspaces/ProyectoFinal/ahorcado/build/CMakeFiles/ahorcado.dir/main.cpp.o"
   "/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp" "/workspaces/ProyectoFinal/ahorcado/build/CMakeFiles/ahorcado.dir/src/Ahorcado.cpp.o"
   "/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp" "/workspaces/ProyectoFinal/ahorcado/build/CMakeFiles/ahorcado.dir/src/Concentrese.cpp.o"
-  "/workspaces/ProyectoFinal/ahorcado/src/Historial.cpp" "/workspaces/ProyectoFinal/ahorcado/build/CMakeFiles/ahorcado.dir/src/Historial.cpp.o"
   "/workspaces/ProyectoFinal/ahorcado/src/Juego.cpp" "/workspaces/ProyectoFinal/ahorcado/build/CMakeFiles/ahorcado.dir/src/Juego.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
