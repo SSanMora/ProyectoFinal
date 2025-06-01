@@ -19,6 +19,12 @@ Juego.h
 ../include/Juego.h
 vector
 -
+Juego.h
+../include/Juego.h
+string
+-
+vector
+-
 
 ../include/Juego.h
 string
@@ -31,26 +37,6 @@ memory
 -
 Ahorcado.h
 /workspaces/ProyectoFinal/ahorcado/Ahorcado.h
-
-/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp
-Ahorcado.h
-/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.h
-iostream
--
-fstream
--
-ctime
--
-cctype
--
-
-/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp
 Concentrese.h
-/workspaces/ProyectoFinal/ahorcado/src/Concentrese.h
-iostream
--
-fstream
--
-ctime
--
+/workspaces/ProyectoFinal/ahorcado/Concentrese.h
 

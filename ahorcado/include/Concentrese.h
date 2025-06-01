@@ -25,3 +25,31 @@ public:
 
 #endif
 */
+
+#ifndef CONCENTRESE_H
+#define CONCENTRESE_H
+
+#include "Juego.h"
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Concentrese : public Juego {
+private:
+    vector<vector<char>> tablero;
+    vector<vector<bool>> descubiertas;
+    int filas;
+    int columnas;
+
+public:
+    Concentrese();
+
+    void jugar() override;
+    void guardarHistorial(const string& jugador, bool gano, int puntuacion) override;
+
+    void cargarSimbolosDesdeArchivo(const string& rutaArchivo);
+    void mostrarTablero();
+};
+
+#endif

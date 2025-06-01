@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include "Ahorcado.h"
+#include "Concentrese.h"
 // #include "Concentrece.h"
 
 using namespace std;
@@ -26,14 +27,15 @@ int main() {
                 juego->jugar();
                 break;
             case 2:
-                cout << "Concentrece no está implementado aún.\n";
+                juego = make_unique<Concentrese>();
+                juego->jugar();
                 break;
             case 3:
                 salir = true;
-                cout << "Gracias por jugar! (*・ω・)ﾉ\n";
+                cout << "\nGracias por jugar! (*・ω・)ﾉ\n";
                 break;
             default:
-                cout << "Opcion no valida. Intenta de nuevo!\n";
+                cout << "\nOpcion no valida. Intenta de nuevo!\n";
                 break;
         }
     }

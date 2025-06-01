@@ -3,6 +3,7 @@
 
 CMakeFiles/ahorcado.dir/main.cpp.o
  ../include/Ahorcado.h
+ ../include/Concentrese.h
  ../include/Juego.h
  /workspaces/ProyectoFinal/ahorcado/main.cpp
 CMakeFiles/ahorcado.dir/src/Ahorcado.cpp.o
@@ -14,4 +15,5 @@ CMakeFiles/ahorcado.dir/src/Concentrese.cpp.o
  ../include/Juego.h
  /workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp
 CMakeFiles/ahorcado.dir/src/Juego.cpp.o
+ ../include/Juego.h
  /workspaces/ProyectoFinal/ahorcado/src/Juego.cpp
