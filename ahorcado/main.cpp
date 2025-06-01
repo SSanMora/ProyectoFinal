@@ -45,4 +45,5 @@ int main() {
 
 /* este es el menu principal, y por ende, el selector de juegos.
 ahora bien, el archivo "palabras.txt" es la lista de palabras para el ahorcado.
+y el archivo "simbolos.txt" es la lista de símbolos para el juego concentrese.
 y el archivo "historial.txt" se va a generar al jugar, y es el registro de partidas.*/
