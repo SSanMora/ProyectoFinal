@@ -17,10 +17,6 @@ vector
 ../include/Concentrese.h
 Juego.h
 ../include/Juego.h
-vector
--
-Juego.h
-../include/Juego.h
 string
 -
 vector
@@ -39,4 +35,14 @@ Ahorcado.h
 /workspaces/ProyectoFinal/ahorcado/Ahorcado.h
 Concentrese.h
 /workspaces/ProyectoFinal/ahorcado/Concentrese.h
+
+/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp
+Concentrese.h
+/workspaces/ProyectoFinal/ahorcado/src/Concentrese.h
+iostream
+-
+fstream
+-
+ctime
+-
 
