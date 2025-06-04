@@ -14,35 +14,19 @@ string
 vector
 -
 
-../include/Concentrese.h
-Juego.h
-../include/Juego.h
-string
--
-vector
--
-
 ../include/Juego.h
 string
 -
 
-/workspaces/ProyectoFinal/ahorcado/main.cpp
-iostream
--
-memory
--
+/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp
 Ahorcado.h
-/workspaces/ProyectoFinal/ahorcado/Ahorcado.h
-Concentrese.h
-/workspaces/ProyectoFinal/ahorcado/Concentrese.h
-
-/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp
-Concentrese.h
-/workspaces/ProyectoFinal/ahorcado/src/Concentrese.h
+/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.h
 iostream
 -
 fstream
 -
 ctime
+-
+cctype
 -
 

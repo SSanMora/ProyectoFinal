@@ -52,20 +52,59 @@ void Ahorcado::cargarPalabraDesdeArchivo(const string& rutaArchivo) {
     }
 }
 
+void Ahorcado::escribirPalabraDesdeConsola(const string& palabra) {
+    /* este es el método que se va a ejecutar al elegir una palabra desde la consola */
+    if (palabra.empty()) { /* si la palabra está vacía */
+        cout << "No se ingresó ninguna palabra.\n"; 
+        return; /* termina el método */
+    }
+    inicializarPalabra(palabra); /* inicializa la palabra secreta con la palabra ingresada */
+
+}
+
 void Ahorcado::jugar() { /* este es el método que se va a ejecutar al jugar */
     string jugador; /* esta es la variable que va a almacenar el nombre del jugador */
-    cout << "Ingresa tu nombre: "; 
-    getline(std::cin, jugador); /* lee el nombre del jugador desde la entrada estándar */
-
-    cargarPalabraDesdeArchivo("palabras.txt"); 
-    /* carga la palabra desde el archivo palabras.txt */
-
-    if (palabraSecreta.empty()) { /* si no se pudo cargar ninguna palabra */
-        cout << "No se pudo cargar ninguna palabra. Terminando el juego.\n";
-        return;
+    string jugador2; /* esta es la variable que va a almacenar el nombre del jugador 2 (si aplica) */
+    
+    /* el jugador debe elegir el modo de juego, jugador vs cpu (para cargar las
+    palabras desde archivo) o jugador1 vs jugador2 (escribir palabra por pantalla)*/
+    
+    cout << "\nElige el modo de juego:" << endl;
+    cout << "1. Jugador vs CPU." << endl;
+    cout << "2. Jugador 1 vs Jugador 2." << endl;
+    
+    int modalidadDeJuego;
+    cout << "Selecciona una opción (1/2): ";
+    cin >> modalidadDeJuego; /* recibe la elección del jugador */
+    cin.ignore(); /* para limpiar el buffer de entrada */
+    
+    if (modalidadDeJuego == 1) {
+        /* si el jugador elige la primera opción... */
+        cout << "\nIngresa tu nombre: "; 
+        getline(cin, jugador); /* lee el nombre del jugador desde la entrada estándar */
+        cargarPalabraDesdeArchivo("palabras.txt");
+        /* carga las palabras desde el archivo palabras.txt */
+        if (palabraSecreta.empty()) { /* si no se pudo cargar ninguna palabra */
+            cout << "No se pudo cargar ninguna palabra. Terminando el juego.\n";
+            return; /* termina el método */
+        }
+    } else if (modalidadDeJuego == 2) {
+        /* si el jugador elige la segunda opción... */
+        cout << "\nJugador 1, por favor ingresa tu nombre: ";
+        getline(cin, jugador); /* lee el nombre del jugador 1 */
+        cout << "Jugador 2, por favor ingresa tu nombre: ";
+        getline(cin, jugador2); /* lee el nombre del jugador 2 */
+        cout << "Jugador 1, por favor escribe la palabra secreta: ";
+        string palabra;
+        getline(cin, palabra); /* lee la palabra ingresada por el jugador 1 */
+        escribirPalabraDesdeConsola(palabra); /* inicializa la palabra secreta con la palabra ingresada */
+        if (palabraSecreta.empty()) { /* si la palabra está vacía */
+            cout << "No se ingresó ninguna palabra. Terminando el juego.\n";
+            return; /* termina el método */
+        }
     }
 
-    cout << "La palabra tiene " << palabraSecreta.length() << " letras.\n";
+    cout << jugador << ", la palabra tiene " << palabraSecreta.length() << " letras.\n";
     /* esto informa al jugador cuántas letras tiene la palabra secreta */
 
     char letra; /* esta es la variable que va a almacenar la letra ingresada por el jugador */
@@ -113,12 +152,22 @@ void Ahorcado::jugar() { /* este es el método que se va a ejecutar al jugar */
         /* si no, se informa al jugador que perdió y se muestra la palabra secreta */
     }
 
-    guardarHistorial(jugador, gano, intentosMaximos - intentosUsados);
+    guardarHistorialAhorcado(jugador, jugador2, gano, intentosMaximos - intentosUsados);
     /* guarda el historial del juego con el nombre del jugador, si ganó o no,
     y la puntuación (intentos restantes) */
 }
 
 void Ahorcado::guardarHistorial(const string& jugador, bool gano, int puntuacion) {
+    ofstream archivo("historial_ahorcado.txt", ios::app);
+    if (archivo.is_open()) {
+        archivo << "Jugador: " << jugador << ", Resultado: " << (gano ? "Ganó" : "Perdió") << ", Puntos: " << puntuacion << endl;
+        archivo.close();
+    } else {
+        cerr << "No se pudo abrir el archivo de historial para escribir." << endl;
+    }
+}
+
+void Ahorcado::guardarHistorialAhorcado(const string& jugador, const string& jugador2, bool gano, int puntuacion) {
     /* este es el método que se va a ejecutar al guardar el historial */
     ofstream archivo("historial.txt", ios::app);
     /* abre el archivo historial.txt en modo append (agregar al final) */
@@ -132,7 +181,7 @@ void Ahorcado::guardarHistorial(const string& jugador, bool gano, int puntuacion
         archivo << (1900 + localtm->tm_year) << "-"
                 << (1 + localtm->tm_mon) << "-"
                 << localtm->tm_mday << " "
-                << jugador << " AH "
+                << jugador << "-" << jugador2 << " AH "
                 << (gano ? "G" : "P") << " "
                 << puntuacion << "\n";
         /* escribe la fecha, el nombre del jugador, si ganó o perdió (G o P),

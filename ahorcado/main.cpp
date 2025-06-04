@@ -2,7 +2,6 @@
 #include <memory>
 #include "Ahorcado.h"
 #include "Concentrese.h"
-// #include "Concentrece.h"
 
 using namespace std;
 
@@ -20,6 +19,7 @@ int main() {
         cin.ignore();
 
         unique_ptr<Juego> juego;
+        /* unique_ptr es un puntero inteligente que se encarga de liberar la memoria automáticamente */
 
         switch (opcion) {
             case 1:

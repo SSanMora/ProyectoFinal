@@ -26,7 +26,11 @@ class Ahorcado :
             /* esto sobrescribe el método jugar de la clase juego y 
             es el método que se va a ejecutar al jugar */
             void guardarHistorial(const string& jugador, bool gano, int puntuacion) override;
-            // este es el método que se va a ejecutar al guardar el historial
+            /* este es el método que se va a ejecutar al guardar el historial,
+            y sobrescribe el método guardarHistorial de la clase juego */
+            void guardarHistorialAhorcado(const string& jugador, const string& jugador2, bool gano, int puntuacion);
+            /* este es el método que se va a ejecutar al guardar el historial
+            con un segundo jugador, si aplica, y guarda el historial del juego en un archivo */
 
             void cargarPalabraDesdeArchivo(const string& rutaArchivo);
             /* este es el método que se va a ejecutar al cargar la palabra desde un archivo
@@ -34,6 +38,9 @@ class Ahorcado :
             void inicializarPalabra(const string& palabra);
             /* este es el método que se va a ejecutar al inicializar la palabra,
             y prepara la palabra secreta, creando una cadena como ____ del mismo largo */
+            void escribirPalabraDesdeConsola(const string& palabra);
+            /* este es el método que se va a ejecutar al elegir una palabra desde la consola,
+            y permite al jugador ingresar una palabra directamente en lugar de cargarla desde un archivo */
     };
 
 #endif
