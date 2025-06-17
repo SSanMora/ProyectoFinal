@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/Ahorcado.h
+../include/Concentrese.h
 Juego.h
 ../include/Juego.h
 string
@@ -18,15 +18,13 @@ vector
 string
 -
 
-/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.cpp
-Ahorcado.h
-/workspaces/ProyectoFinal/ahorcado/src/Ahorcado.h
+/workspaces/ProyectoFinal/ahorcado/src/Concentrese.cpp
+Concentrese.h
+/workspaces/ProyectoFinal/ahorcado/src/Concentrese.h
 iostream
 -
 fstream
 -
 ctime
--
-cctype
 -
 

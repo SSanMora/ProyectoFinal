@@ -81,7 +81,7 @@ void Concentrese::mostrarTablero() { /* este método muestra el estado actual de
 
 void Concentrese::jugar() { /* este es el método que se va a ejecutar al jugar */
     string jugador; /* este es el nombre del jugador */
-    cout << "Ingresa tu nombre: "; /* pide al jugador que ingrese su nombre */
+    cout << "\nIngresa tu nombre: "; /* pide al jugador que ingrese su nombre */
     cin.ignore(); /* limpia el buffer de entrada */
     getline(cin, jugador); /* lee el nombre del jugador */
 
