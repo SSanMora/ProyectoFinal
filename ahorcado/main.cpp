@@ -10,7 +10,7 @@ int main() {
     bool salir = false;
 
     while (!salir) {
-        cout << "\t\n::: MINIJUEGOS :::\n";
+        cout << "\n\t::: MINIJUEGOS :::\n";
         cout << "1. Ahorcado\n";
         cout << "2. Concentrece\n";
         cout << "3. Salir\n";
